@@ -32,7 +32,7 @@ class MockDice
   end
 
   def pop(sides)
-    roll = @future_rolls.empty? ? Dice._original_random_number(sides) : @future_rolls.pop
+    roll = @future_rolls.empty? ? Dice._original_random_number(sides) : @future_rolls.shift
     (@rolls << roll).last
   end
 
