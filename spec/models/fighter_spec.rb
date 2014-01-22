@@ -12,9 +12,14 @@ describe Fighter do
     end
   end
 
-  describe "rolls" do
-    it "correctly rolls the initiative" do
+  describe "initiative" do
+    it "correctly rolled" do
       fighter.initiative_roll.should eq @dice.rolls.sum + fighter.reaction
+    end
+
+    it "doesn't use the rule of six" do
+      @dice.future_rolls += [6,5,5]
+      fighter.initiative_roll.should eq 11 + fighter.reaction
     end
   end
 end
