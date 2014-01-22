@@ -10,6 +10,10 @@ describe Fighter do
     it "correctly determines the reaction" do
       fighter.reaction.should eq (fighter.intelligence + fighter.quickness) / 2
     end
+
+    it "correctly determines the combat pool" do
+      fighter.combat_pool.should eq (fighter.quickness + fighter.intelligence + fighter.willpower) / 2
+    end
   end
 
   describe "initiative" do

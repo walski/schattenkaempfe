@@ -16,5 +16,18 @@ FactoryGirl.define do
     sequence(:initiative) {|n| rand(2) + 1}
 
     sequence(:name) {|n| "Fighter #{n}"}
+
+    factory :good_fighter do
+      body 5
+      quickness 5
+      strength 5
+      charisma 5
+      intelligence 5
+      willpower 5
+      essence 6
+      magic 0
+
+      initiative 2
+    end
   end
 end
