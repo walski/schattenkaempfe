@@ -8,22 +8,22 @@ describe Fighter do
 
   describe "character calculations" do
     it "correctly determines the reaction" do
-      fighter.reaction.should eq (fighter.intelligence + fighter.quickness) / 2
+      expect(fighter.reaction).to eq (fighter.intelligence + fighter.quickness) / 2
     end
 
     it "correctly determines the combat pool" do
-      fighter.combat_pool.should eq (fighter.quickness + fighter.intelligence + fighter.willpower) / 2
+      expect(fighter.combat_pool).to eq (fighter.quickness + fighter.intelligence + fighter.willpower) / 2
     end
   end
 
   describe "initiative" do
     it "correctly rolled" do
-      fighter.initiative_roll.should eq @dice.rolls.sum + fighter.reaction
+      expect(fighter.initiative_roll).to eq @dice.rolls.sum + fighter.reaction
     end
 
     it "doesn't use the rule of six" do
       @dice.future_rolls += [6,5,5]
-      fighter.initiative_roll.should eq 11 + fighter.reaction
+      expect(fighter.initiative_roll).to eq 11 + fighter.reaction
     end
   end
 end

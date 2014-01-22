@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Fighter do
+describe FighterInRound do
   before do
     @dice = MockDice.mock_random_dice!
   end
@@ -8,11 +8,11 @@ describe Fighter do
   let(:fighter_in_round) {FighterInRound.new(fighter)}
 
   it "uses up the combat pool" do
-    fighter_in_round.combat_pool.should eq fighter.combat_pool
+    expect(fighter_in_round.combat_pool).to eq fighter.combat_pool
 
     fighter_in_round.use_combat_pool(2)
 
-    fighter_in_round.combat_pool.should eq fighter.combat_pool - 2
+    expect(fighter_in_round.combat_pool).to eq fighter.combat_pool - 2
   end
 
   it "cant't use more combat pool than a fighter has" do
