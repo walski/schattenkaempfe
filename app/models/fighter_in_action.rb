@@ -12,6 +12,9 @@ class FighterInAction
     false
   end
 
+  def apply_modifiers!
+  end
+
   def method_missing(method_name, *args)
     fighter_in_round.send(method_name, *args)
   end

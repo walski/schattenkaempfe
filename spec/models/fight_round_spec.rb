@@ -11,8 +11,8 @@ describe FightRound do
   let(:fighter_4) {create(:fighter)}
   let(:fighter_5) {create(:fighter)}
 
-  describe "actions" do
-    it "determines the actions and their order by the fighters' initiative" do
+  describe "turns" do
+    it "determines the turns and their order by the fighters' initiative" do
       fighter_1.stub(initiative_roll: 16)
       fighter_2.stub(initiative_roll: 25)
       fighter_3.stub(initiative_roll: 14)
@@ -21,7 +21,7 @@ describe FightRound do
 
       round = FightRound.new(fighters: [fighter_1, fighter_2, fighter_3, fighter_4, fighter_5])
 
-      expect(round.actions).to eq [
+      expect(round.turns).to eq [
         FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 37),
         FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 27),
         FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_2), initiative: 25),

@@ -3,20 +3,29 @@ class FightRound
     @fighters = fighters.map {|fighter| FighterInRound.new(fighter)}
   end
 
-  def actions
-    @actions ||= generate_actions
+  def turns
+    @turns ||= generate_turns
+    apply_modifiers_to_turns!
+    @turns
   end
 
   protected
-  def generate_actions
-    actions = []
+  def apply_modifiers_to_turns!
+    @turns.each do |fighter_in_action|
+      fighter_in_action.apply_modifiers!
+    end
+    @turns.sort_by!(&:initiative).reverse!
+  end
+
+  def generate_turns
+    turns = []
 
     while @fighters.any? {|fighter_in_round| fighter_in_round.current_action_initiative > 0}
       next_fighter = @fighters.sort_by(&:current_action_initiative).last
-      actions << FighterInAction.new(fighter_in_round: next_fighter, initiative: next_fighter.current_action_initiative)
+      turns << FighterInAction.new(fighter_in_round: next_fighter, initiative: next_fighter.current_action_initiative)
       next_fighter.current_action_initiative -= 10
     end
 
-    actions
+    turns
   end
 end
