@@ -1,5 +1,5 @@
 class FighterInRound < FighterProxy
-  attr_reader :fighter, :combat_pool
+  attr_reader :combat_pool
   attr_accessor :current_action_initiative
 
   def initialize(*args)
