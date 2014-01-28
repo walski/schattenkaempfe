@@ -5,7 +5,7 @@ describe FighterInRound do
     @dice = MockDice.mock_random_dice!
   end
   let(:fighter) {create(:fighter)}
-  let(:fighter_in_round) {FighterInRound.new(fighter)}
+  let(:fighter_in_round) {FighterInRound.new(fighter: fighter)}
 
   it "uses up the combat pool" do
     expect(fighter_in_round.combat_pool).to eq fighter.combat_pool

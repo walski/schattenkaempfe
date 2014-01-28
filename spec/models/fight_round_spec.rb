@@ -22,19 +22,19 @@ describe FightRound do
       round = FightRound.new(fighters: [fighter_1, fighter_2, fighter_3, fighter_4, fighter_5])
 
       expect(round.turns).to eq [
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 37),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 27),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_2), initiative: 25),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_5), initiative: 20),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 17),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_1), initiative: 16),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_2), initiative: 15),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_3), initiative: 14),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_5), initiative: 10),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_4), initiative: 7),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_1), initiative: 6),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_2), initiative: 5),
-        FighterInAction.new(fighter_in_round: FighterInRound.new(fighter_3), initiative: 4)
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_4), initiative: 37),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_4), initiative: 27),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_2), initiative: 25),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_5), initiative: 20),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_4), initiative: 17),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_1), initiative: 16),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_2), initiative: 15),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_3), initiative: 14),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_5), initiative: 10),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_4), initiative: 7),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_1), initiative: 6),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_2), initiative: 5),
+        FighterInAction.new(fighter: FighterInRound.new(fighter: fighter_3), initiative: 4)
       ]
     end
   end

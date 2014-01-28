@@ -1,21 +1,17 @@
-class FighterInAction
-  attr_reader :initiative, :fighter_in_round
+class FighterInAction < FighterProxy
+  attr_reader :initiative, :fighter
 
-  def initialize(fighter_in_round:, initiative:)
-    @fighter_in_round = fighter_in_round
+  def initialize(fighter:, initiative:)
+    super(fighter: fighter)
     @initiative = initiative
   end
 
   def ==(other)
-    other.initiative == initiative && other.fighter_in_round == fighter_in_round
+    super(other) && other.initiative == initiative
   rescue
     false
   end
 
   def apply_modifiers!
-  end
-
-  def method_missing(method_name, *args)
-    fighter_in_round.send(method_name, *args)
   end
 end
