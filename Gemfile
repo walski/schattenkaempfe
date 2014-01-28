@@ -38,6 +38,10 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-spin'
+  gem 'spin'
 end
 
 # Use ActiveModel has_secure_password
