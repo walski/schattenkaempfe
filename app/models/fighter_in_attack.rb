@@ -22,7 +22,11 @@ class FighterInAttack < FighterProxy
     attack_roll.select {|roll| roll >= attack.target_roll_to_attack(attack.other(self))}.length
   end
 
+  def disastrous_mistake?
+    attack_roll.all? {|r| r == 1}
+  end
+
   def attack_roll
-    @attack_roll ||= combat_skill.times.map {r = Dice.with(6).sides.using_rule_of_six.roll; p r; r}
+    @attack_roll ||= combat_skill.times.map {Dice.with(6).sides.using_rule_of_six.roll}
   end
 end

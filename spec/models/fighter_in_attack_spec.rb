@@ -9,7 +9,7 @@ describe FighterInAttack do
   let(:fighter) {attack.attacker}
 
   it "knows the target to hit the fighter" do
-    expect(fighter.target_roll_to_be_attacked).should eq 4
+    expect(fighter.target_roll_to_be_attacked).to eq 4
   end
 
   it "uses no combat pool dices" do
@@ -30,7 +30,14 @@ describe FighterInAttack do
       expect(fighter.attack_roll).to eq [11,4,3,2]
     end
 
-    it "uses the rule of 1"
+    it "uses the rule of 1" do
+      @dice.future_rolls += [1,5,1,1]
+      expect(fighter.attack_roll).to eq [1,5,1,1]
+      expect(fighter).not_to be_disastrous_mistake
+
+      @dice.future_rolls += [1,1,1,1]
+      expect(fighter).not_to be_disastrous_mistake
+    end
 
     it "knows how many successes it has" do
       attack.defender.stub(target_roll_to_be_attacked: 5)
