@@ -17,13 +17,6 @@ class Attack
   def target_roll_to_attack(fighter)
     return @attacker.target_roll_to_be_attacked if @attacker.is_proxy_for?(fighter)
     return @defender.target_roll_to_be_attacked if @defender.is_proxy_for?(fighter)
-    p '-' * 80
-    p @attacker.fighter
-    puts "\n"
-    p @defender.fighter
-    puts "\n"
-    p fighter
-    p '------'
 
     raise "Fighter not in attack!"
   end
